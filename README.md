@@ -72,7 +72,7 @@
 
 This document is a description of how Bob went about it
 
-!['./overview01.png'](./mdfigures/overview01.png)
+!['./tool/overview01.png'](./tool/mdfigures/overview01.png)
 <p style="text-align: center;">- Fig 1 - Overview -</p>
 
 ## Why FSM
@@ -199,7 +199,7 @@ here > thetool testdata/server1.txt show --astty -i
 
 There are many advantages to representing a FSM in 1NF (First normal Form from Relational Database. Close to a CSV-file where all rows has the same column names). You can process data with traditional SQL but also with known patterns - filter, sort, select, group by, etc - in common programming languages.
 
-!['./mdfigures/datamodell02.png'](./mdfigures/datamodell02.png)
+!['./tool/mdfigures/datamodell02.png'](./tool/mdfigures/datamodell02.png)
 <p style="text-align: center;">- Fig 2 - Datamodell -</p>
 
 You can extend this database with whatever you need. Business Object, Source and Destination for Messages if you work with multiple FSM. You can add timers. 
@@ -381,7 +381,7 @@ Look into inverters/ and you will find the above source but also for Javascript,
 
 All sources in the `Box` below are generated with the tool for a certain FSM machine. Acutally every machine will be produced the same way with the same pattern but with different content. The invokers can be used on any machine.
 
-!['./mdfigures/components03.png'](./mdfigures/components03.png)
+!['./tool/mdfigures/components03.png'](./tool/mdfigures/components03.png)
 <p style="text-align: center;">- Fig 3 - Components -</p>
 
 >**Note**. As there is a 1-1 exclusive mapping between state/inmessage in the FSM and the dedicated guardfunction this guardfunction could be inlined as source in the FSM. For performance reason. But it might be harder to maintain though.
@@ -561,7 +561,7 @@ You can get a view of a FSM as a more traditional graph by
 
 Drop the (standard) output onto any web browser and you get
 
-!['./mdfigures/dhcpserver04.png'](./mdfigures/dhcpserver04.png)
+!['./tool/mdfigures/dhcpserver04.png'](./tool/mdfigures/dhcpserver04.png)
 <p style="text-align: center;">- Fig 4 - DHCP server -</p>
 
 If there are too many crossig lines try optimise via
@@ -600,7 +600,7 @@ Could be a killer! Give it a try.
 
 Here is a partial screen scrape of that
 
-!['./mdfigures/adderserver05.png'](./mdfigures/adderserver05.png)
+!['./tool/mdfigures/adderserver05.png'](./tool/mdfigures/adderserver05.png)
 <p style="text-align: center;">- Fig 5 - Example genspectext -</p>
 
 ### chat
