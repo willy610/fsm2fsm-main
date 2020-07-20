@@ -1,0 +1,3 @@
+INIT,Open,Cond_OK,OK,Process
+Process,More,Cond_OK,OK,Process
+Process,Close,Cond_OK,Ok,FINAL

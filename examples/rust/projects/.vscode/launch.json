@@ -1,0 +1,56 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+
+    {//stdinclient
+      "type": "lldb",
+      "request": "launch",
+      "name": "stdinclient",
+      "program": "${workspaceFolder}/target/debug/stdinclient",
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {//stdinserver
+      "type": "lldb",
+      "request": "launch",
+      "name": "stdinserver",
+      "program": "${workspaceFolder}/target/debug/stdinserver",
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+
+    {//udpserver
+      "type": "lldb",
+      "request": "launch",
+      "name": "udpserver",
+      "program": "${workspaceFolder}/target/debug/udpserver",
+      "args": [
+        "--seed",
+        "34"],
+      "cwd": "${workspaceFolder}"
+    },
+    {//udpclient
+      "type": "lldb",
+      "request": "launch",
+      "name": "udpclient",
+      "program": "${workspaceFolder}/target/debug/udpclient",
+      "args": [
+        "--seed",
+        "61061"],
+      "cwd": "${workspaceFolder}"
+    },
+    {//clientandserver
+      "type": "lldb",
+      "request": "launch",
+      "name": "clientandserver",
+      "program": "${workspaceFolder}/target/debug/clientandserver",
+      "args": [
+        "--seed",
+        "61061"],
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

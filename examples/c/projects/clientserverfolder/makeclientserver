@@ -1,0 +1,91 @@
+INC=-I./ -I../generatedsources
+OBJ=objs/
+GENSOR=../generatedsources/
+WARN=-Wall
+
+# Dependent on objects
+
+clientandserver : $(OBJ)clientandserver.o \
+  $(OBJ)clientandserver_client.o \
+	$(OBJ)clientandserver_server.o \
+	$(OBJ)MsgFactory.o \
+	$(OBJ)C_FSM.o \
+	$(OBJ)C_GI.o \
+	$(OBJ)C_PI.o \
+	$(OBJ)C_BusinessObject.o \
+	$(OBJ)S_FSM.o \
+	$(OBJ)S_GI.o \
+	$(OBJ)S_PI.o \
+	$(OBJ)S_BusinessObject.o \
+
+#
+# Link objects to image
+#
+	cc -o clientandserver $(OBJ)clientandserver.o \
+	$(OBJ)clientandserver_client.o \
+	$(OBJ)clientandserver_server.o \
+	$(OBJ)MsgFactory.o \
+	$(OBJ)C_FSM.o \
+	$(OBJ)C_GI.o \
+	$(OBJ)C_PI.o \
+	$(OBJ)C_BusinessObject.o \
+	$(OBJ)S_FSM.o \
+	$(OBJ)S_GI.o \
+	$(OBJ)S_PI.o \
+	$(OBJ)S_BusinessObject.o \
+#
+# Compile ready made c files
+#
+$(OBJ)clientandserver.o : clientandserver.c 
+	cc -c $(WARN) -g  $(INC) clientandserver.c -o $(OBJ)clientandserver.o
+
+$(OBJ)clientandserver_client.o : clientandserver_client.c 
+	cc -c $(WARN) -g $(INC) clientandserver_client.c -o $(OBJ)clientandserver_client.o
+
+$(OBJ)clientandserver_server.o : clientandserver_server.c 
+	cc -c $(WARN) -g $(INC) clientandserver_server.c -o $(OBJ)clientandserver_server.o
+
+$(OBJ)C_BusinessObject.o : C_BusinessObject.c
+	cc -c $(WARN) $(INC) C_BusinessObject.c -o $(OBJ)C_BusinessObject.o
+
+$(OBJ)S_BusinessObject.o : S_BusinessObject.c
+	cc -c $(WARN) $(INC) S_BusinessObject.c -o $(OBJ)S_BusinessObject.o
+#
+# Compile generated files
+#
+$(OBJ)MsgFactory.o : ${GENSOR}MsgFactory.c 
+	cc -c $(WARN) -g $(INC) ${GENSOR}MsgFactory.c -o $(OBJ)MsgFactory.o
+
+$(OBJ)C_FSM.o : ${GENSOR}C_FSM.c
+	cc -c $(WARN) -g $(INC) ${GENSOR}C_FSM.c -o $(OBJ)C_FSM.o
+
+$(OBJ)C_GI.o : ${GENSOR}C_GI.c 
+	cc -c $(WARN) -g $(INC) ${GENSOR}C_GI.c -o $(OBJ)C_GI.o
+
+$(OBJ)C_PI.o : ${GENSOR}C_PI.c 
+	cc -c $(WARN) -g $(INC) ${GENSOR}C_PI.c -o $(OBJ)C_PI.o
+
+$(OBJ)S_FSM.o : ${GENSOR}S_FSM.c
+	cc -c $(WARN) -g $(INC) ${GENSOR}S_FSM.c -o $(OBJ)S_FSM.o
+
+$(OBJ)S_GI.o : ${GENSOR}S_GI.c 
+	cc -c $(WARN) -g $(INC) ${GENSOR}S_GI.c -o $(OBJ)S_GI.o
+
+$(OBJ)S_PI.o : ${GENSOR}S_PI.c 
+	cc -c $(WARN) -g $(INC) ${GENSOR}S_PI.c -o $(OBJ)S_PI.o
+
+clean :
+	rm $(OBJ)clientandserver.o \
+  clientandserver \
+	$(OBJ)clientandserver_client.o \
+	$(OBJ)clientandserver_server.o \
+	$(OBJ)MsgFactory.o \
+	$(OBJ)C_FSM.o \
+	$(OBJ)C_GI.o \
+	$(OBJ)C_PI.o \
+	$(OBJ)S_FSM.o \
+	$(OBJ)S_GI.o \
+	$(OBJ)S_PI.o \
+ 	$(OBJ)S_BusinessObject.o \
+ 	$(OBJ)C_BusinessObject.o 
+   

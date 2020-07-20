@@ -1,0 +1,34 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {//(macOS/Unix) Debug stdinclient
+      "name": "(macOS/Unix) Debug stdinclient",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/stdinclient",
+      "args": ["--seed", "610"],
+      "stopAtEntry": true,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "lldb",
+    },
+    {//(Win) Debug stdinclient
+      "name": "(Windows) Debug stdinclient",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/stdinclient.exe",
+      "args": [
+        "-seed",
+        "123"
+      ],
+      "stopAtEntry": true,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false
+    }
+  ]
+}

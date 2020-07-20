@@ -1,0 +1,28 @@
+SELECT DISTINCT 'INIT'                     AS State, 
+                'callin'                   AS Event, 
+                '-'                        AS 'Guard Value', 
+                inmessage                  AS Output, 
+                Concat('INIT', '_', inmessage) AS 'NextState' 
+FROM   transition 
+WHERE  state = 'INIT' 
+       AND fsm = 'adderserver' 
+UNION 
+(SELECT DISTINCT Concat(state, '_', inmessage) AS State, 
+                 outmessage                AS Event, 
+                 '-'                       AS 'Guard Value', 
+                 '-'                       AS Output, 
+                 'FINAL'                   AS 'NextState' 
+ FROM   transition 
+ WHERE  nextstate = 'FINAL' 
+        AND fsm = 'adderserver') 
+UNION 
+(SELECT DISTINCT Concat(first.state, '_', first.inmessage)   AS State, 
+                 first.outmessage                            AS Event, 
+                 '-'                                         AS 'Guard Value', 
+                 second.inmessage                            AS Output, 
+                 Concat(second.state, '_', second.inmessage) AS 'NextState' 
+ FROM   transition AS first 
+        LEFT JOIN transition AS second 
+               ON first.nextstate = second.state 
+ WHERE  first.fsm = 'adderserver' 
+        AND second.fsm = 'adderserver')  

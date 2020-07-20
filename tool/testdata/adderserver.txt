@@ -1,0 +1,7 @@
+INIT,Open,1,OpenOk,Process
+INIT,Open,2,OpenFail,FINAL
+Process,Add,1,AddOK,Process
+Process,Add,2,RetryAdd,Process
+Process,Add,3,AddFail,FINAL
+Process,Close,1,CloseOk,FINAL
+Process,Close,2,CloseFail,FINAL

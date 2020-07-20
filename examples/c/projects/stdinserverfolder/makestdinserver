@@ -1,0 +1,40 @@
+INC=-I./ -I../generatedsources
+OBJ=objs/
+GENSOR=../generatedsources/
+WARN=-Wall
+
+stdinserver : $(OBJ)stdinserver.o \
+	$(OBJ)MsgFactory.o \
+	$(OBJ)S_FSM.o \
+	$(OBJ)S_GI.o \
+	$(OBJ)S_PI.o \
+	$(OBJ)S_BusinessObject.o \
+
+	cc -o stdinserver $(OBJ)stdinserver.o \
+	$(OBJ)MsgFactory.o \
+	$(OBJ)S_FSM.o \
+	$(OBJ)S_GI.o \
+	$(OBJ)S_PI.o \
+	$(OBJ)S_BusinessObject.o
+
+$(OBJ)stdinserver.o : stdinserver.c
+	cc -c $(WARN) -g $(INC) stdinserver.c -o $(OBJ)stdinserver.o
+$(OBJ)MsgFactory.o : ${GENSOR}MsgFactory.c 
+	cc -c $(WARN) -g $(INC) ${GENSOR}MsgFactory.c -o $(OBJ)MsgFactory.o
+$(OBJ)S_FSM.o : ${GENSOR}S_FSM.c
+	cc -c $(WARN) -g $(INC) ${GENSOR}S_FSM.c -o $(OBJ)S_FSM.o
+$(OBJ)S_GI.o : ${GENSOR}S_GI.c
+	cc -c $(WARN) -g $(INC) ${GENSOR}S_GI.c -o $(OBJ)S_GI.o
+$(OBJ)S_PI.o : ${GENSOR}S_PI.c 
+	cc -c $(WARN) -g $(INC) ${GENSOR}S_PI.c -o $(OBJ)S_PI.o
+$(OBJ)S_BusinessObject.o : S_BusinessObject.c
+	cc -c $(WARN) -g $(INC) S_BusinessObject.c -o $(OBJ)S_BusinessObject.o
+
+clean :
+	rm $(OBJ)stdinserver.o \
+  stdinserver \
+	$(OBJ)MsgFactory.o \
+	$(OBJ)S_FSM.o \
+	$(OBJ)S_GI.o \
+	$(OBJ)S_PI.o \
+	$(OBJ)S_BusinessObject.o \

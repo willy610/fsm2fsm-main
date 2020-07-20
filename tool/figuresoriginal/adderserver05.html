@@ -1,0 +1,378 @@
+
+<body>
+<head>
+<style>
+body {
+background-color: white;
+}
+table,
+th,
+td {
+border: 0.5px solid black;
+font-family: 'Courier New', Courier, monospace;
+font-size: 13px;
+color: black;
+}
+th,
+td {
+padding: 3px;
+vertical-align: top;
+}
+</style>
+</head>
+<h2>Machine Name: testdata/adderserver.txt</h2>
+
+<h3>Business Object</h3>
+<table>
+<tr><th>Attribute</th><th>Kind</th><th>Comment</th></tr>
+<tr><td><i>attr1</i></td><td>...</td><td>...</td></tr>
+</table>
+<h3>In Messages</h3>
+<table><tr><th>InMessage</th><th>Attribute</th><th>Comment</th></tr>
+<tr><td>add</td></tr>
+<tr><td></td><td><i>attr1</i></td><td>...</td></tr>
+<tr><td>close</td></tr>
+<tr><td></td><td><i>attr1</i></td><td>...</td></tr>
+<tr><td>open</td></tr>
+<tr><td></td><td><i>attr1</i></td><td>...</td></tr>
+</table>
+<h3>Out Messages</h3>
+<table><tr><th>OutMessage</th><th>Attribute</th><th>Comment</th></tr>
+<tr><td>addfail</td></tr>
+<tr><td></td><td><i>attr1</i></td><td>...</td></tr>
+<tr><td>addok</td></tr>
+<tr><td></td><td><i>attr1</i></td><td>...</td></tr>
+<tr><td>closefail</td></tr>
+<tr><td></td><td><i>attr1</i></td><td>...</td></tr>
+<tr><td>closeok</td></tr>
+<tr><td></td><td><i>attr1</i></td><td>...</td></tr>
+<tr><td>openfail</td></tr>
+<tr><td></td><td><i>attr1</i></td><td>...</td></tr>
+<tr><td>openok</td></tr>
+<tr><td></td><td><i>attr1</i></td><td>...</td></tr>
+<tr><td>retryadd</td></tr>
+<tr><td></td><td><i>attr1</i></td><td>...</td></tr>
+</table>
+<h3>Guard functions</h3>
+<table>
+<tr>
+  <th>State and<br>In-Message</th>
+  <th>&nbsp;</th>
+  <th>Guard Validation</th>
+  <th>Outcome</th>
+</tr>
+<tr>
+<td rowspan="4"><b>INIT<br>Open</b></td>
+<td>Always</td>
+<td>Check In Message attributes...<br>
+Check Business Object attributes...
+</td>
+<td>(Might) Fail=><br><b>ERR("In Pre Guard","INIT_Open")</b></td>
+</tr>
+
+<tr>
+<td>When</td>
+<td><i>Inmessage.xyz > ...<br>
+    Businessobject.abc < ... </i>
+      </90>
+</td>
+<td>OK=><br><b>init_open_1</b></td>
+</tr>
+
+<tr>
+<td>When</td>
+<td><i>Inmessage.xyz > ...<br>
+    Businessobject.abc < ... </i>
+      </90>
+</td>
+<td>OK=><br><b>init_open_2</b></td>
+</tr>
+
+<tr>
+<td>Otherwise</td>
+<td></td>
+<td>Fail=><br><b>ERR("In Post Guard", "INIT_Open")</b></td>
+</tr>
+
+<tr>
+<td rowspan="5"><b>Process<br>Add</b></td>
+<td>Always</td>
+<td>Check In Message attributes...<br>
+Check Business Object attributes...
+</td>
+<td>(Might) Fail=><br><b>ERR("In Pre Guard","Process_Add")</b></td>
+</tr>
+
+<tr>
+<td>When</td>
+<td><i>Inmessage.xyz > ...<br>
+    Businessobject.abc < ... </i>
+      </90>
+</td>
+<td>OK=><br><b>process_add_1</b></td>
+</tr>
+
+<tr>
+<td>When</td>
+<td><i>Inmessage.xyz > ...<br>
+    Businessobject.abc < ... </i>
+      </90>
+</td>
+<td>OK=><br><b>process_add_2</b></td>
+</tr>
+
+<tr>
+<td>When</td>
+<td><i>Inmessage.xyz > ...<br>
+    Businessobject.abc < ... </i>
+      </90>
+</td>
+<td>OK=><br><b>process_add_3</b></td>
+</tr>
+
+<tr>
+<td>Otherwise</td>
+<td></td>
+<td>Fail=><br><b>ERR("In Post Guard", "Process_Add")</b></td>
+</tr>
+
+<tr>
+<td rowspan="4"><b>Process<br>Close</b></td>
+<td>Always</td>
+<td>Check In Message attributes...<br>
+Check Business Object attributes...
+</td>
+<td>(Might) Fail=><br><b>ERR("In Pre Guard","Process_Close")</b></td>
+</tr>
+
+<tr>
+<td>When</td>
+<td><i>Inmessage.xyz > ...<br>
+    Businessobject.abc < ... </i>
+      </90>
+</td>
+<td>OK=><br><b>process_close_1</b></td>
+</tr>
+
+<tr>
+<td>When</td>
+<td><i>Inmessage.xyz > ...<br>
+    Businessobject.abc < ... </i>
+      </90>
+</td>
+<td>OK=><br><b>process_close_2</b></td>
+</tr>
+
+<tr>
+<td>Otherwise</td>
+<td></td>
+<td>Fail=><br><b>ERR("In Post Guard", "Process_Close")</b></td>
+</tr>
+
+</table>
+  <h3>Outmessage Production and Customer Object Updates</h3>
+  <table>
+  <tr>
+    <th>Outmessages</th>
+    <th>Condition from <br>Guard Function</th>
+    <th>Build Outmessage and <br>Update Business Object</th>
+    <th>Outcome</th>
+</tr>
+<tr>
+<td rowspan="3">addfail</td>
+<td>Always</td>
+<td><i>new outmessage<br>
+Set content...<br>
+Get from inmessage...<br>
+Update object...</i>
+</td>
+<td>Might FAIL<br>
+<b>ERR("Pre Prod Fail","addfail")</b></td>
+</tr>
+        
+<tr>
+<td><B>process_add_3</B></td>
+<td><i>
+Set content...<br>
+Get from inmessage...<br>
+Update object...</i>
+</td>
+<td>Ok=><br><b>addfail<br>OR<br>Err("In Prod Cond", "addfail", "process_add_3")</b></td>
+</tr>
+        
+<tr>
+            <td>Otherwise</td>
+            <td><i>Rollback Object updates?</i></td>
+            <td>Fail=><b>ERR("Post Prod Fail", "addfail")</b></td>
+          </tr>
+      
+<tr>
+<td rowspan="3">addok</td>
+<td>Always</td>
+<td><i>new outmessage<br>
+Set content...<br>
+Get from inmessage...<br>
+Update object...</i>
+</td>
+<td>Might FAIL<br>
+<b>ERR("Pre Prod Fail","addok")</b></td>
+</tr>
+        
+<tr>
+<td><B>process_add_1</B></td>
+<td><i>
+Set content...<br>
+Get from inmessage...<br>
+Update object...</i>
+</td>
+<td>Ok=><br><b>addok<br>OR<br>Err("In Prod Cond", "addok", "process_add_1")</b></td>
+</tr>
+        
+<tr>
+            <td>Otherwise</td>
+            <td><i>Rollback Object updates?</i></td>
+            <td>Fail=><b>ERR("Post Prod Fail", "addok")</b></td>
+          </tr>
+      
+<tr>
+<td rowspan="3">closefail</td>
+<td>Always</td>
+<td><i>new outmessage<br>
+Set content...<br>
+Get from inmessage...<br>
+Update object...</i>
+</td>
+<td>Might FAIL<br>
+<b>ERR("Pre Prod Fail","closefail")</b></td>
+</tr>
+        
+<tr>
+<td><B>process_close_2</B></td>
+<td><i>
+Set content...<br>
+Get from inmessage...<br>
+Update object...</i>
+</td>
+<td>Ok=><br><b>closefail<br>OR<br>Err("In Prod Cond", "closefail", "process_close_2")</b></td>
+</tr>
+        
+<tr>
+            <td>Otherwise</td>
+            <td><i>Rollback Object updates?</i></td>
+            <td>Fail=><b>ERR("Post Prod Fail", "closefail")</b></td>
+          </tr>
+      
+<tr>
+<td rowspan="3">closeok</td>
+<td>Always</td>
+<td><i>new outmessage<br>
+Set content...<br>
+Get from inmessage...<br>
+Update object...</i>
+</td>
+<td>Might FAIL<br>
+<b>ERR("Pre Prod Fail","closeok")</b></td>
+</tr>
+        
+<tr>
+<td><B>process_close_1</B></td>
+<td><i>
+Set content...<br>
+Get from inmessage...<br>
+Update object...</i>
+</td>
+<td>Ok=><br><b>closeok<br>OR<br>Err("In Prod Cond", "closeok", "process_close_1")</b></td>
+</tr>
+        
+<tr>
+            <td>Otherwise</td>
+            <td><i>Rollback Object updates?</i></td>
+            <td>Fail=><b>ERR("Post Prod Fail", "closeok")</b></td>
+          </tr>
+      
+<tr>
+<td rowspan="3">openfail</td>
+<td>Always</td>
+<td><i>new outmessage<br>
+Set content...<br>
+Get from inmessage...<br>
+Update object...</i>
+</td>
+<td>Might FAIL<br>
+<b>ERR("Pre Prod Fail","openfail")</b></td>
+</tr>
+        
+<tr>
+<td><B>init_open_2</B></td>
+<td><i>
+Set content...<br>
+Get from inmessage...<br>
+Update object...</i>
+</td>
+<td>Ok=><br><b>openfail<br>OR<br>Err("In Prod Cond", "openfail", "init_open_2")</b></td>
+</tr>
+        
+<tr>
+            <td>Otherwise</td>
+            <td><i>Rollback Object updates?</i></td>
+            <td>Fail=><b>ERR("Post Prod Fail", "openfail")</b></td>
+          </tr>
+      
+<tr>
+<td rowspan="3">openok</td>
+<td>Always</td>
+<td><i>new outmessage<br>
+Set content...<br>
+Get from inmessage...<br>
+Update object...</i>
+</td>
+<td>Might FAIL<br>
+<b>ERR("Pre Prod Fail","openok")</b></td>
+</tr>
+        
+<tr>
+<td><B>init_open_1</B></td>
+<td><i>
+Set content...<br>
+Get from inmessage...<br>
+Update object...</i>
+</td>
+<td>Ok=><br><b>openok<br>OR<br>Err("In Prod Cond", "openok", "init_open_1")</b></td>
+</tr>
+        
+<tr>
+            <td>Otherwise</td>
+            <td><i>Rollback Object updates?</i></td>
+            <td>Fail=><b>ERR("Post Prod Fail", "openok")</b></td>
+          </tr>
+      
+<tr>
+<td rowspan="3">retryadd</td>
+<td>Always</td>
+<td><i>new outmessage<br>
+Set content...<br>
+Get from inmessage...<br>
+Update object...</i>
+</td>
+<td>Might FAIL<br>
+<b>ERR("Pre Prod Fail","retryadd")</b></td>
+</tr>
+        
+<tr>
+<td><B>process_add_2</B></td>
+<td><i>
+Set content...<br>
+Get from inmessage...<br>
+Update object...</i>
+</td>
+<td>Ok=><br><b>retryadd<br>OR<br>Err("In Prod Cond", "retryadd", "process_add_2")</b></td>
+</tr>
+        
+<tr>
+            <td>Otherwise</td>
+            <td><i>Rollback Object updates?</i></td>
+            <td>Fail=><b>ERR("Post Prod Fail", "retryadd")</b></td>
+          </tr>
+      
+</table>
+  </body>

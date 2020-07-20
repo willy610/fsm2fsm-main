@@ -1,0 +1,14 @@
+main : main.o classskeleton.o
+	cc -o main main.o classskeleton.o
+
+main.o : main.c
+	cc -g -c main.c
+
+classskeleton.o : classskeleton.c
+	cc -g -c classskeleton.c
+
+clean :
+	rm main.o \
+  main \
+  classskeleton.o
+  

@@ -1,0 +1,117 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {//Build stdinserver
+      "label": "Build stdinserver",
+      "type": "shell",
+      "command": "cargo build --bin stdinserver",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {//Build stdinclient
+      "label": "Build stdinclient",
+      "type": "shell",
+      "command": "cargo build --bin stdinclient",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {//Build udpserver
+      "label": "Build udpserver",
+      "type": "shell",
+      "command": "cargo build --bin udpserver",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {//Build udpclient
+      "label": "Build udpclient",
+      "type": "shell",
+      "command": "cargo build --bin udpclient",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {//Format udpclient
+      "label": "Format udpclient",
+      "type": "shell",
+      "command": "rustfmt src/udpclient.rs -v",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {//Format udpserver
+      "label": "Format udpserver",
+      "type": "shell",
+      "command": "rustfmt src/udpserver.rs -v",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {//Format stdinclient
+      "label": "Format stdinclient",
+      "type": "shell",
+      "command": "rustfmt src/stdinclient.rs -v",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {//Format stdinserver
+      "label": "Format stdinserver",
+      "type": "shell",
+      "command": "rustfmt src/stdinserver.rs -v",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {//Build clientandserver
+      "label": "Build clientandserver",
+      "type": "shell",
+      "command": "cargo build --bin clientandserver",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {//Format clientandserver
+      "label": "Format clientandserver",
+      "type": "shell",
+      "command": "rustfmt src/clientandserver.rs -v",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {//Clean project
+      "label": "Clean project",
+      "type": "shell",
+      "command": "cargo clean",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}

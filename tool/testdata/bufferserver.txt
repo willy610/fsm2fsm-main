@@ -1,0 +1,17 @@
+INIT,Open,RES_Ok,OK,NoOldInput
+NoOldInput,ProcesNewInput,RES_OutFullInEmpty,OutFullInEmpty,NoOldInput
+NoOldInput,ProcesNewInput,RES_OutNowFull,OutNowFull,OldInput
+NoOldInput,ProcesNewInput,RES_InNowEmpty,InNowEmpty,NoOldInput
+NoOldInput,ProcesNewInput,RES_InternalError,InternalError,FINAL
+NoOldInput,Close,RES_Ok_done,OK_done,FINAL
+NoOldInput,Close,RES_Ok_more,OK_moreOutputremains,Rundown
+NoOldInput,Close,RES_InternalError,InternalError,FINAL
+NoOldInput,Error,RES_Ok,nooutput,FINAL
+OldInput,ProcesOldData,RES_OutFullInEmpty,OutFullInEmpty,NoOldInput
+OldInput,ProcesOldData,RES_OutNowFull,OutNowFull,OldInput
+OldInput,ProcesOldData,RES_InNowEmpty,InNowEmpty,NoOldInput
+OldInput,ProcesOldData,RES_InternalError,InternalError,FINAL
+OldInput,Error,RES_Ok,nooutput,FINAL
+Rundown,Close,RES_Ok_done,nooutput,FINAL
+Rundown,Close,RES_Ok_more,OK_moreOutputremains,Rundown
+Rundown,Error,RES_Ok,nooutput,FINAL

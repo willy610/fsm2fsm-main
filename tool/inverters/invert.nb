@@ -1,0 +1,301 @@
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[         0,          0]
+NotebookDataLength[     11952,        300]
+NotebookOptionsPosition[     10318,        260]
+NotebookOutlinePosition[     10796,        279]
+CellTagsIndexPosition[     10753,        276]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Inverting an FSM
+willy@fager.st\
+\>", "Subsubsection",
+ CellChangeTimes->{{3.7996575550302353`*^9, 
+  3.799657592220743*^9}},ExpressionUUID->"3642b808-5361-4d48-9902-\
+5afa1887580b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"transitions", "=", 
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<INIT,Open,1,OpenOk,Process\>\"", ",", "\[IndentingNewLine]", 
+     "\"\<INIT,Open,2,OpenFail,FINAL\>\"", ",", "\[IndentingNewLine]", 
+     "\"\<Process,Add,1,AddOK,Process\>\"", ",", "\[IndentingNewLine]", 
+     "\"\<Process,Add,2,RetryAdd,Process\>\"", ",", "\[IndentingNewLine]", 
+     "\"\<Process,Add,3,AddFail,FINAL\>\"", ",", "\[IndentingNewLine]", 
+     "\"\<Process,Close,1,CloseOk,FINAL\>\"", ",", "\[IndentingNewLine]", 
+     "\"\<Process,Close,2,CloseFail,FINAL\>\""}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.798910912153797*^9, 3.798910962904853*^9}, {
+  3.8037415196593657`*^9, 3.8037415653742933`*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"b75ff86c-9582-43f5-9c67-3e4251250bfc"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"transitions", "//", "TableForm"}]], "Input",
+ CellChangeTimes->{{3.79965721658496*^9, 3.799657233798867*^9}, {
+  3.799657366612657*^9, 3.7996573684684772`*^9}, {3.7996574035971603`*^9, 
+  3.799657470424118*^9}, {3.799657524985312*^9, 3.799657535248822*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"ee2bd0c3-6dfb-4ef8-997d-1aceb2987b9f"],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {"\<\"INIT,Open,1,OpenOk,Process\"\>"},
+     {"\<\"INIT,Open,2,OpenFail,FINAL\"\>"},
+     {"\<\"Process,Add,1,AddOK,Process\"\>"},
+     {"\<\"Process,Add,2,RetryAdd,Process\"\>"},
+     {"\<\"Process,Add,3,AddFail,FINAL\"\>"},
+     {"\<\"Process,Close,1,CloseOk,FINAL\"\>"},
+     {"\<\"Process,Close,2,CloseFail,FINAL\"\>"}
+    },
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.5599999999999999]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}],
+   Column],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.799657542160431*^9, 3.803741568926004*^9, 
+  3.803819245212894*^9},
+ CellLabel->
+  "Out[2]//TableForm=",ExpressionUUID->"842618eb-9d2e-418b-8ef6-dd4c3132dfa0"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mirror$trans", "=", 
+   RowBox[{"{", "}"}]}], ";"}]], "Input",
+ CellLabel->"In[3]:=",ExpressionUUID->"75bfce0c-34e9-44d8-a84a-d005ef923d06"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"from", ",", "event", ",", "guard", ",", "out", ",", "nxt"}], 
+        "}"}], "=", 
+       RowBox[{"StringSplit", "[", 
+        RowBox[{"#", ",", "\"\<,\>\""}], "]"}]}], ";", "\[IndentingNewLine]", 
+      
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"from", "\[Equal]", "\"\<INIT\>\""}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"mirror$trans", ",", "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{
+           "\"\<INIT\>\"", ",", "\"\<callin\>\"", ",", "\"\<NOGUARD_YET\>\"", 
+            ",", "event", ",", 
+            RowBox[{"\"\<INIT\>\"", "<>", "\"\<_\>\"", "<>", "event"}]}], 
+           "}"}]}], "\[IndentingNewLine]", "]"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"nxt", "\[Equal]", "\"\<FINAL\>\""}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"mirror$trans", ",", "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"from", "<>", "\"\<_\>\"", "<>", "event"}], ",", "out", 
+            ",", "\"\<NOGUARD_YET\>\"", ",", "\"\<-\>\"", ",", 
+            "\"\<FINAL\>\""}], "}"}]}], "\[IndentingNewLine]", "]"}]}], "]"}],
+       ";"}], "\[IndentingNewLine]", ")"}], "&"}], "/@", "transitions"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.798911080751977*^9, 3.7989110810049553`*^9}, {
+   3.798911120166246*^9, 3.798911256725403*^9}, {3.7989113660482264`*^9, 
+   3.798911468332204*^9}, {3.798911590284698*^9, 3.798911593955482*^9}, {
+   3.798911630897455*^9, 3.798911643425597*^9}, {3.798911731866211*^9, 
+   3.7989118279371367`*^9}, 3.798911890141951*^9, 3.7989127601762943`*^9, {
+   3.799656614149274*^9, 3.7996566225769463`*^9}, 3.8037481732700577`*^9},
+ CellLabel->"In[4]:=",ExpressionUUID->"70e3537a-2b1d-4983-bd32-cde6ce12f850"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "l$from", ",", "l$event", ",", "l$guard", ",", "l$out", ",", 
+         "l$nxt"}], "}"}], "=", 
+       RowBox[{"StringSplit", "[", 
+        RowBox[{"#", ",", "\"\<,\>\""}], "]"}]}], ";", "\[IndentingNewLine]", 
+      
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+            "r$from", ",", "r$event", ",", "r$guard", ",", "r$out", ",", 
+             "r$nxt"}], "}"}], "=", 
+           RowBox[{"StringSplit", "[", 
+            RowBox[{"#", ",", "\"\<,\>\""}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"If", " ", "[", 
+           RowBox[{
+            RowBox[{"l$nxt", " ", "==", "r$from"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"AppendTo", "[", 
+              RowBox[{"mirror$trans", ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"l$from", "<>", "\"\<_\>\"", "<>", "l$event"}], ",", 
+                 "l$out", ",", "\"\<NOGUARD_YET\>\"", ",", "r$event", ",", 
+                 RowBox[{"r$from", "<>", "\"\<_\>\"", "<>", "r$event"}]}], 
+                "}"}]}], "]"}], ";"}]}], "\[IndentingNewLine]", "]"}]}], 
+         "\[IndentingNewLine]", ")"}], "&"}], "/@", "transitions"}]}], 
+     "\[IndentingNewLine]", ")"}], "&"}], "/@", "transitions"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.798911918835376*^9, 3.7989122094715843`*^9}, {
+  3.799656560477312*^9, 3.799656562120228*^9}, {3.8037479769585342`*^9, 
+  3.8037479870539637`*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"dffd8e7e-6376-42cb-912c-762bb596681c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mirror$trans", "=", 
+   RowBox[{"Union", "[", "mirror$trans", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.798912230018627*^9, 3.7989122330329533`*^9}, {
+   3.798912409927802*^9, 3.798912428945717*^9}, 3.7989124936011553`*^9, 
+   3.7989127899019403`*^9},
+ CellLabel->"In[6]:=",ExpressionUUID->"d82cfb4a-f4f2-41aa-9661-c8f25f538925"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"MapIndexed", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"from", ",", "event", ",", "guard", ",", "out", ",", "nxt"}],
+          "}"}], "=", "#"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"from", ",", "event", ",", 
+         RowBox[{
+         "from", "<>", "\"\<_\>\"", "<>", "event", "<>", "\"\<_\>\"", "<>", 
+          RowBox[{"ToString", "[", 
+           RowBox[{"#2", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "]"}]}], ",", "out", ",", "nxt"}],
+         "}"}]}], "\[IndentingNewLine]", ")"}], "&"}], ",", "mirror$trans"}], 
+   "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.798912499894257*^9, 3.798912710286273*^9}, 
+   3.798912784343445*^9},
+ CellLabel->"In[7]:=",ExpressionUUID->"79e9c523-af95-435b-b1e9-e9235b0cd211"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"%", "//", "TableForm"}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{3.798912695598647*^9},
+ CellLabel->"In[8]:=",ExpressionUUID->"620395fd-57ec-4b54-9676-0b9a660a7f28"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"INIT\"\>", "\<\"callin\"\>", "\<\"INIT_callin_1\"\>", \
+"\<\"Open\"\>", "\<\"INIT_Open\"\>"},
+    {"\<\"INIT_Open\"\>", "\<\"OpenFail\"\>", "\<\"INIT_Open_OpenFail_2\"\>", \
+"\<\"-\"\>", "\<\"FINAL\"\>"},
+    {"\<\"INIT_Open\"\>", "\<\"OpenOk\"\>", "\<\"INIT_Open_OpenOk_3\"\>", "\<\
+\"Add\"\>", "\<\"Process_Add\"\>"},
+    {"\<\"INIT_Open\"\>", "\<\"OpenOk\"\>", "\<\"INIT_Open_OpenOk_4\"\>", "\<\
+\"Close\"\>", "\<\"Process_Close\"\>"},
+    {"\<\"Process_Add\"\>", "\<\"AddFail\"\>", \
+"\<\"Process_Add_AddFail_5\"\>", "\<\"-\"\>", "\<\"FINAL\"\>"},
+    {"\<\"Process_Add\"\>", "\<\"AddOK\"\>", "\<\"Process_Add_AddOK_6\"\>", "\
+\<\"Add\"\>", "\<\"Process_Add\"\>"},
+    {"\<\"Process_Add\"\>", "\<\"AddOK\"\>", "\<\"Process_Add_AddOK_7\"\>", "\
+\<\"Close\"\>", "\<\"Process_Close\"\>"},
+    {"\<\"Process_Add\"\>", "\<\"RetryAdd\"\>", "\<\"Process_Add_RetryAdd_8\"\
+\>", "\<\"Add\"\>", "\<\"Process_Add\"\>"},
+    {"\<\"Process_Add\"\>", "\<\"RetryAdd\"\>", "\<\"Process_Add_RetryAdd_9\"\
+\>", "\<\"Close\"\>", "\<\"Process_Close\"\>"},
+    {"\<\"Process_Close\"\>", "\<\"CloseFail\"\>", \
+"\<\"Process_Close_CloseFail_10\"\>", "\<\"-\"\>", "\<\"FINAL\"\>"},
+    {"\<\"Process_Close\"\>", "\<\"CloseOk\"\>", \
+"\<\"Process_Close_CloseOk_11\"\>", "\<\"-\"\>", "\<\"FINAL\"\>"}
+   },
+   GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.798912696634658*^9, 3.798912713318363*^9}, {
+   3.7989127802837677`*^9, 3.798912802737384*^9}, 3.799656630977289*^9, 
+   3.8037415863036013`*^9, 3.8037482921271772`*^9, 3.8038192566949263`*^9},
+ CellLabel->
+  "Out[8]//TableForm=",ExpressionUUID->"9f887a7a-96b9-47b4-9f6e-423d3711d7dc"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1453, 911},
+WindowMargins->{{56, Automatic}, {52, Automatic}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
+Magnification:>1.25 Inherited,
+FrontEndVersion->"12.1 for Mac OS X x86 (64-bit) (June 9, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"ac1c236f-f4e9-4bcf-ac81-6316960c8f16"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[422, 15, 192, 6, 89, "Subsubsection",ExpressionUUID->"3642b808-5361-4d48-9902-5afa1887580b"],
+Cell[617, 23, 820, 14, 220, "Input",ExpressionUUID->"b75ff86c-9582-43f5-9c67-3e4251250bfc"],
+Cell[CellGroupData[{
+Cell[1462, 41, 359, 5, 37, "Input",ExpressionUUID->"ee2bd0c3-6dfb-4ef8-997d-1aceb2987b9f"],
+Cell[1824, 48, 941, 25, 191, "Output",ExpressionUUID->"842618eb-9d2e-418b-8ef6-dd4c3132dfa0"]
+}, Open  ]],
+Cell[2780, 76, 175, 4, 37, "Input",ExpressionUUID->"75bfce0c-34e9-44d8-a84a-d005ef923d06"],
+Cell[2958, 82, 2020, 45, 298, "Input",ExpressionUUID->"70e3537a-2b1d-4983-bd32-cde6ce12f850"],
+Cell[4981, 129, 1800, 45, 246, "Input",ExpressionUUID->"dffd8e7e-6376-42cb-912c-762bb596681c"],
+Cell[6784, 176, 370, 7, 37, "Input",ExpressionUUID->"d82cfb4a-f4f2-41aa-9661-c8f25f538925"],
+Cell[7157, 185, 892, 22, 116, "Input",ExpressionUUID->"79e9c523-af95-435b-b1e9-e9235b0cd211"],
+Cell[CellGroupData[{
+Cell[8074, 211, 214, 4, 64, "Input",ExpressionUUID->"620395fd-57ec-4b54-9676-0b9a660a7f28"],
+Cell[8291, 217, 1999, 39, 283, "Output",ExpressionUUID->"9f887a7a-96b9-47b4-9f6e-423d3711d7dc"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

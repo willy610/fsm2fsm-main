@@ -1,0 +1,44 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "(macOS/Unix) clean main",
+      "command": "/usr/bin/make",
+      "args": [
+        "-f",
+        "${workspaceFolder}/maka",
+        "clean"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+    ,
+    { //(macOS/Unix) build main
+      "type": "shell",
+      "label": "(macOS/Unix) build main",
+      "command": "/usr/bin/make",
+      "args": [
+        "-f",
+        "${workspaceFolder}/maka"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }  ]
+}

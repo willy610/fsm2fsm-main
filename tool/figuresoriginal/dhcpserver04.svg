@@ -1,0 +1,160 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+            <html xmlns="http://www.w3.org/1999/xhtml">
+<body>
+<svg height='722' width='956' xmlns='http://www.w3.org/2000/svg'>
+<defs><style type='text/css'>@namespace 'http://www.w3.org/2000/svg';
+.LINERESULT {stroke:green;fill:none;stroke-width:1.5;}
+.LINEEARTH {stroke:red;fill:none;stroke-width:1.5;}
+.ARROW {fill:blue;}
+.PATHRESULT {stroke:green;fill:none;stroke-width:1.5;}
+.PATHSTATEBACK {stroke:black;fill:none;stroke-width:1.5;}
+.LINEEVENT {stroke:blue;fill:none;stroke-width:1.5;}
+.CIRCLESTATE {stroke:green; stroke-width:2; fill:yellow;}
+.STATETEXT {font-family: monospace;font-size:16px;	text-anchor:middle;}
+.RESULTTEXT {font-family: monospace;font-size:14px; text-anchor:left;}
+.RESULTTEXT_CIRC {font-family: monospace;font-size:14px; text-anchor:left;}
+.RESULTTEXT_CIRC_ROT {font-family: monospace;font-size:14px; text-anchor:end;}
+.EVENTTEXT {font-weight: bold;font-family: monospace;font-size:16px; text-anchor:left;}
+.EVENTTEXT_CIRC {font-family: monospace;font-size:16px; text-anchor:left;}
+.EVENTTEXT_CIRC_ROT {font-family: monospace;font-size:16px; text-anchor:end;}
+</style>
+</defs>
+<text class='RESULTTEXT' x='461.0' y='79.0'>Error / NAK</text>
+<line class='LINERESULT' x1='458.0' y1='82.0' x2='656.0' y2='82.0'></line>
+<line class='LINEEARTH' x1='656.0' y1='97.0' x2='656.0' y2='67.0'></line>
+<line class='LINEEARTH' x1='661.0' y1='92.0' x2='661.0' y2='72.0'></line>
+<line class='LINEEARTH' x1='666.0' y1='87.0' x2='666.0' y2='77.0'></line>
+<text class='RESULTTEXT' x='461.0' y='111.0'>NewIPAvailable / OFFER</text>
+<line class='LINERESULT' x1='458.0' y1='114.0' x2='656.0' y2='114.0'></line>
+<text class='RESULTTEXT' x='461.0' y='143.0'>NoIPAvailable / nooutput</text>
+<line class='LINERESULT' x1='458.0' y1='146.0' x2='656.0' y2='146.0'></line>
+<line class='LINEEARTH' x1='656.0' y1='161.0' x2='656.0' y2='131.0'></line>
+<line class='LINEEARTH' x1='661.0' y1='156.0' x2='661.0' y2='136.0'></line>
+<line class='LINEEARTH' x1='666.0' y1='151.0' x2='666.0' y2='141.0'></line>
+<text class='EVENTTEXT' x='263.0' y='111.0'>DISCOVER</text>
+<line class='LINEEVENT' x1='260.0' y1='114.0' x2='458.0' y2='114.0'></line>
+<line class='LINERESULT' x1='458.0' y1='78.8' x2='458.0' y2='149.2'></line>
+<text class='RESULTTEXT' x='461.0' y='175.0'>OldIPAvailable / OFFER</text>
+<line class='LINERESULT' x1='458.0' y1='178.0' x2='656.0' y2='178.0'></line>
+<text class='RESULTTEXT' x='461.0' y='207.0'>OldNotIPAvailable / NAK</text>
+<line class='LINERESULT' x1='458.0' y1='210.0' x2='656.0' y2='210.0'></line>
+<line class='LINEEARTH' x1='656.0' y1='225.0' x2='656.0' y2='195.0'></line>
+<line class='LINEEARTH' x1='661.0' y1='220.0' x2='661.0' y2='200.0'></line>
+<line class='LINEEARTH' x1='666.0' y1='215.0' x2='666.0' y2='205.0'></line>
+<text class='EVENTTEXT' x='263.0' y='191.0'>DISCOVER_TRY_REUSE</text>
+<line class='LINEEVENT' x1='260.0' y1='194.0' x2='458.0' y2='194.0'></line>
+<line class='LINERESULT' x1='458.0' y1='174.8' x2='458.0' y2='213.2'></line>
+<circle class='CIRCLESTATE' cx='150.0' cy='154.0' r='25'>INIT</circle>
+<text class='STATETEXT' x='150.0' y='151.0'>INIT</text>
+<line class='LINEEVENT' x1='175.0' y1='154.0' x2='260.0' y2='154.0'></line>
+<line class='LINEEVENT' x1='260.0' y1='110.8' x2='260.0' y2='197.2'></line>
+<text class='RESULTTEXT' x='461.0' y='271.0'>Free / OFFER</text>
+<line class='LINERESULT' x1='458.0' y1='274.0' x2='656.0' y2='274.0'></line>
+<text class='EVENTTEXT' x='263.0' y='271.0'>DISCOVER_TRY_REUSE</text>
+<line class='LINEEVENT' x1='260.0' y1='274.0' x2='458.0' y2='274.0'></line>
+<line class='LINERESULT' x1='458.0' y1='270.8' x2='458.0' y2='277.2'></line>
+<text class='RESULTTEXT' x='461.0' y='303.0'>OK / INFORM</text>
+<line class='LINERESULT' x1='458.0' y1='306.0' x2='656.0' y2='306.0'></line>
+<text class='EVENTTEXT' x='263.0' y='303.0'>INFORM</text>
+<line class='LINEEVENT' x1='260.0' y1='306.0' x2='458.0' y2='306.0'></line>
+<line class='LINERESULT' x1='458.0' y1='302.8' x2='458.0' y2='309.2'></line>
+<text class='RESULTTEXT' x='461.0' y='335.0'>NowReleased / OFFER</text>
+<line class='LINERESULT' x1='458.0' y1='338.0' x2='656.0' y2='338.0'></line>
+<line class='LINEEARTH' x1='656.0' y1='353.0' x2='656.0' y2='323.0'></line>
+<line class='LINEEARTH' x1='661.0' y1='348.0' x2='661.0' y2='328.0'></line>
+<line class='LINEEARTH' x1='666.0' y1='343.0' x2='666.0' y2='333.0'></line>
+<text class='EVENTTEXT' x='263.0' y='335.0'>RELEASE</text>
+<line class='LINEEVENT' x1='260.0' y1='338.0' x2='458.0' y2='338.0'></line>
+<line class='LINERESULT' x1='458.0' y1='334.8' x2='458.0' y2='341.2'></line>
+<text class='RESULTTEXT' x='461.0' y='367.0'>Tmo2 / nooutput</text>
+<line class='LINERESULT' x1='458.0' y1='370.0' x2='656.0' y2='370.0'></line>
+<line class='LINEEARTH' x1='656.0' y1='385.0' x2='656.0' y2='355.0'></line>
+<line class='LINEEARTH' x1='661.0' y1='380.0' x2='661.0' y2='360.0'></line>
+<line class='LINEEARTH' x1='666.0' y1='375.0' x2='666.0' y2='365.0'></line>
+<text class='EVENTTEXT' x='263.0' y='367.0'>tmo</text>
+<line class='LINEEVENT' x1='260.0' y1='370.0' x2='458.0' y2='370.0'></line>
+<line class='LINERESULT' x1='458.0' y1='366.8' x2='458.0' y2='373.2'></line>
+<circle class='CIRCLESTATE' cx='150.0' cy='322.0' r='25'>IPAllocated</circle>
+<text class='STATETEXT' x='150.0' y='319.0'>IPAllocated</text>
+<line class='LINEEVENT' x1='175.0' y1='322.0' x2='260.0' y2='322.0'></line>
+<line class='LINEEVENT' x1='260.0' y1='270.8' x2='260.0' y2='373.2'></line>
+<path class='PATHSTATEBACK' d='M 656,402 L 150,402 Q 70,402 132.32233,339.67767'></path>
+<path  d='M 0,0 L-12,-5 -6,0 -12,5' transform='translate(132.32233,339.67767) rotate(-45)' class='ARROW'/>
+<text class='RESULTTEXT' x='461.0' y='431.0'>Sorry / ACK</text>
+<line class='LINERESULT' x1='458.0' y1='434.0' x2='656.0' y2='434.0'></line>
+<line class='LINEEARTH' x1='656.0' y1='449.0' x2='656.0' y2='419.0'></line>
+<line class='LINEEARTH' x1='661.0' y1='444.0' x2='661.0' y2='424.0'></line>
+<line class='LINEEARTH' x1='666.0' y1='439.0' x2='666.0' y2='429.0'></line>
+<text class='EVENTTEXT' x='263.0' y='431.0'>DECLINE</text>
+<line class='LINEEVENT' x1='260.0' y1='434.0' x2='458.0' y2='434.0'></line>
+<line class='LINERESULT' x1='458.0' y1='430.8' x2='458.0' y2='437.2'></line>
+<text class='RESULTTEXT' x='461.0' y='463.0'>Enjoy / ACK</text>
+<line class='LINERESULT' x1='458.0' y1='466.0' x2='656.0' y2='466.0'></line>
+<text class='EVENTTEXT' x='263.0' y='463.0'>REQUEST</text>
+<line class='LINEEVENT' x1='260.0' y1='466.0' x2='458.0' y2='466.0'></line>
+<line class='LINERESULT' x1='458.0' y1='462.8' x2='458.0' y2='469.2'></line>
+<text class='RESULTTEXT' x='461.0' y='495.0'>Tmo1 / nooutput</text>
+<line class='LINERESULT' x1='458.0' y1='498.0' x2='656.0' y2='498.0'></line>
+<line class='LINEEARTH' x1='656.0' y1='513.0' x2='656.0' y2='483.0'></line>
+<line class='LINEEARTH' x1='661.0' y1='508.0' x2='661.0' y2='488.0'></line>
+<line class='LINEEARTH' x1='666.0' y1='503.0' x2='666.0' y2='493.0'></line>
+<text class='EVENTTEXT' x='263.0' y='495.0'>tmo</text>
+<line class='LINEEVENT' x1='260.0' y1='498.0' x2='458.0' y2='498.0'></line>
+<line class='LINERESULT' x1='458.0' y1='494.8' x2='458.0' y2='501.2'></line>
+<circle class='CIRCLESTATE' cx='150.0' cy='466.0' r='25'>WAITREQUEST</circle>
+<text class='STATETEXT' x='150.0' y='463.0'>WAITREQUEST</text>
+<line class='LINEEVENT' x1='175.0' y1='466.0' x2='260.0' y2='466.0'></line>
+<line class='LINEEVENT' x1='260.0' y1='430.8' x2='260.0' y2='501.2'></line>
+<path class='PATHSTATEBACK' d='M 656,530 L 150,530 Q 70,530 130.47829,481.61737'></path>
+<path  d='M 0,0 L-12,-5 -6,0 -12,5' transform='translate(130.47829,481.61737) rotate(-38.65981)' class='ARROW'/>
+<text class='RESULTTEXT' x='461.0' y='559.0'>AcceptThat / ACK</text>
+<line class='LINERESULT' x1='458.0' y1='562.0' x2='656.0' y2='562.0'></line>
+<line class='LINEEARTH' x1='656.0' y1='577.0' x2='656.0' y2='547.0'></line>
+<line class='LINEEARTH' x1='661.0' y1='572.0' x2='661.0' y2='552.0'></line>
+<line class='LINEEARTH' x1='666.0' y1='567.0' x2='666.0' y2='557.0'></line>
+<text class='EVENTTEXT' x='263.0' y='559.0'>DECLINE</text>
+<line class='LINEEVENT' x1='260.0' y1='562.0' x2='458.0' y2='562.0'></line>
+<line class='LINERESULT' x1='458.0' y1='558.8' x2='458.0' y2='565.2'></line>
+<text class='RESULTTEXT' x='461.0' y='591.0'>OkReleased / ACK</text>
+<line class='LINERESULT' x1='458.0' y1='594.0' x2='656.0' y2='594.0'></line>
+<line class='LINEEARTH' x1='656.0' y1='609.0' x2='656.0' y2='579.0'></line>
+<line class='LINEEARTH' x1='661.0' y1='604.0' x2='661.0' y2='584.0'></line>
+<line class='LINEEARTH' x1='666.0' y1='599.0' x2='666.0' y2='589.0'></line>
+<text class='EVENTTEXT' x='263.0' y='591.0'>RELEASE</text>
+<line class='LINEEVENT' x1='260.0' y1='594.0' x2='458.0' y2='594.0'></line>
+<line class='LINERESULT' x1='458.0' y1='590.8' x2='458.0' y2='597.2'></line>
+<text class='RESULTTEXT' x='461.0' y='623.0'>OkReUse / ACK</text>
+<line class='LINERESULT' x1='458.0' y1='626.0' x2='656.0' y2='626.0'></line>
+<text class='EVENTTEXT' x='263.0' y='623.0'>REQUEST</text>
+<line class='LINEEVENT' x1='260.0' y1='626.0' x2='458.0' y2='626.0'></line>
+<line class='LINERESULT' x1='458.0' y1='622.8' x2='458.0' y2='629.2'></line>
+<text class='RESULTTEXT' x='461.0' y='655.0'>Tmo3 / nooutput</text>
+<line class='LINERESULT' x1='458.0' y1='658.0' x2='656.0' y2='658.0'></line>
+<line class='LINEEARTH' x1='656.0' y1='673.0' x2='656.0' y2='643.0'></line>
+<line class='LINEEARTH' x1='661.0' y1='668.0' x2='661.0' y2='648.0'></line>
+<line class='LINEEARTH' x1='666.0' y1='663.0' x2='666.0' y2='653.0'></line>
+<text class='EVENTTEXT' x='263.0' y='655.0'>tmo</text>
+<line class='LINEEVENT' x1='260.0' y1='658.0' x2='458.0' y2='658.0'></line>
+<line class='LINERESULT' x1='458.0' y1='654.8' x2='458.0' y2='661.2'></line>
+<circle class='CIRCLESTATE' cx='150.0' cy='610.0' r='25'>WAITREQUEST_REUSE</circle>
+<text class='STATETEXT' x='150.0' y='607.0'>WAITREQUEST_REUSE</text>
+<line class='LINEEVENT' x1='175.0' y1='610.0' x2='260.0' y2='610.0'></line>
+<line class='LINEEVENT' x1='260.0' y1='558.8' x2='260.0' y2='661.2'></line>
+<path class='PATHSTATEBACK' d='M 656,690 L 150,690 Q 70,690 132.32233,627.6777'></path>
+<path  d='M 0,0 L-12,-5 -6,0 -12,5' transform='translate(132.32233,627.6777) rotate(-45)' class='ARROW'/>
+<path class='PATHRESULT' d='M 656,114 L 806,114 Q 821,114 821,129 L 821,515 Q 821,530 806,530 L 656,530'></path>
+<path  d='M 0,0 L-12,-5 -6,0 -12,5' transform='translate(821,322) rotate(89.99999)' class='ARROW'/>
+<path class='PATHRESULT' d='M 656,178 L 873.5,178 Q 888.5,178 888.5,193 L 888.5,675 Q 888.5,690 873.5,690 L 656,690'></path>
+<path  d='M 0,0 L-12,-5 -6,0 -12,5' transform='translate(888.5,434) rotate(89.99999)' class='ARROW'/>
+<path class='PATHRESULT' d='M 656,274 L 873.5,274 Q 888.5,274 888.5,289 L 888.5,675 Q 888.5,690 873.5,690 L 656,690'></path>
+<path  d='M 0,0 L-12,-5 -6,0 -12,5' transform='translate(888.5,482) rotate(89.99999)' class='ARROW'/>
+<path class='PATHRESULT' d='M 656,306 L 738.5,306 Q 753.5,306 753.5,321 L 753.5,387 Q 753.5,402 738.5,402 L 656,402'></path>
+<path  d='M 0,0 L-12,-5 -6,0 -12,5' transform='translate(753.5,354) rotate(89.99999)' class='ARROW'/>
+<path class='PATHRESULT' d='M 656,466 L 738.5,466 Q 753.5,466 753.5,451 L 753.5,417 Q 753.5,402 738.5,402 L 656,402'></path>
+<path  d='M 0,0 L-12,-5 -6,0 -12,5' transform='translate(753.5,434) rotate(-89.99999)' class='ARROW'/>
+<path class='PATHRESULT' d='M 656,626 L 738.5,626 Q 753.5,626 753.5,611 L 753.5,417 Q 753.5,402 738.5,402 L 656,402'></path>
+<path  d='M 0,0 L-12,-5 -6,0 -12,5' transform='translate(753.5,514) rotate(-89.99999)' class='ARROW'/>
+</svg>
+</body>
+</html>

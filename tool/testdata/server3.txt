@@ -1,0 +1,8 @@
+INIT,Open,RES_Ok_1,Ok1,Process
+Process,More,RES_Ok_2,Ok2,Process
+Process,Close,RES_Ok_3,nooutput,FINAL
+Process,Hold,RES_Ok_4,Ok3,Wait
+Process,Hold,RES_Ok_4_X,Ok5,Process
+Wait,More,RES_Ok_5,Ok4,Process
+Wait,tmoSESSION,RES_Ok_6,nooutput,FINAL
+Wait,Close,RES_Ok_7,nooutput,FINAL

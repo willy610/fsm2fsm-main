@@ -1,0 +1,39 @@
+INC=-I./ -I../generatedsources
+OBJ=objs/
+GENSOR=../generatedsources/
+WARN=-Wall
+
+udpclient : $(OBJ)udpclient.o \
+	$(OBJ)MsgFactory.o \
+	$(OBJ)C_FSM.o \
+	$(OBJ)C_GI.o \
+	$(OBJ)C_PI.o \
+	$(OBJ)C_BusinessObject.o \
+
+	cc -o udpclient $(OBJ)udpclient.o \
+	$(OBJ)MsgFactory.o \
+	$(OBJ)C_FSM.o \
+	$(OBJ)C_GI.o \
+	$(OBJ)C_PI.o \
+	$(OBJ)C_BusinessObject.o
+
+$(OBJ)udpclient.o : udpclient.c
+	cc -c $(WARN) -g $(INC) udpclient.c -o $(OBJ)udpclient.o
+$(OBJ)MsgFactory.o : ${GENSOR}MsgFactory.c 
+	cc -c $(WARN)  -g $(INC) ${GENSOR}MsgFactory.c -o $(OBJ)MsgFactory.o
+$(OBJ)C_FSM.o : ${GENSOR}C_FSM.c
+	cc -c $(WARN)  -g $(INC) ${GENSOR}C_FSM.c -o $(OBJ)C_FSM.o
+$(OBJ)C_GI.o : ${GENSOR}C_GI.c
+	cc -c $(WARN)  -g $(INC) ${GENSOR}C_GI.c -o $(OBJ)C_GI.o
+$(OBJ)C_PI.o : ${GENSOR}C_PI.c 
+	cc -c $(WARN)  -g $(INC) ${GENSOR}C_PI.c -o $(OBJ)C_PI.o
+$(OBJ)C_BusinessObject.o : C_BusinessObject.c
+	cc -c $(WARN)  -g $(INC) C_BusinessObject.c -o $(OBJ)C_BusinessObject.o
+
+clean :
+	rm $(OBJ)udpclient.o \
+	$(OBJ)MsgFactory.o \
+	$(OBJ)C_FSM.o \
+	$(OBJ)C_GI.o \
+	$(OBJ)C_PI.o \
+	$(OBJ)C_BusinessObject.o \
